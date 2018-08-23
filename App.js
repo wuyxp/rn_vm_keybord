@@ -7,23 +7,27 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import {
+  StyleSheet, 
+  Text,
+  View,
+  TouchableOpacity,
+} from 'react-native';
+import './src/Util'
+import VMKeybord from './src/component/KeyBord'
 
 type Props = {};
 export default class App extends Component<Props> {
+  showKeyBord(){
+    console.log('1231323');
+  }
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <TouchableOpacity onPress={this.showKeyBord}>
+          <Text style={styles.welcome}>点击弹出虚拟键盘</Text>
+        </TouchableOpacity>
+        <VMKeybord />
       </View>
     );
   }
